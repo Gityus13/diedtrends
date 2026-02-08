@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Trend Archive | A Museum of Digital Culture</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💾</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fas fa-history"></i> Trend Archive <span class="logo-year">2010-2026</span></a>
+            <ul class="nav-menu">
+                <li><a href="#archive"><i class="fas fa-box-archive"></i> Archive</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#randomizer"><i class="fas fa-random"></i> Random Trend</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="THE INTERNET WAS HERE">THE INTERNET WAS HERE</h1>
+            <p class="hero-subtitle">A digital museum of viral trends, forgotten games, and cultural moments that shaped our online world.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num" id="trendCount">0</span><span class="stat-label">Trends Archived</span></div>
+                <div class="stat"><span class="stat-num" id="eraSpan">16</span><span class="stat-label">Years of History</span></div>
+                <div class="stat"><span class="stat-num">99%</span><span class="stat-label">Now Obsolete</span></div>
+            </div>
+            <a href="#archive" class="cta-button">Explore the Archive <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Trend of the Day -->
+        <section class="section featured-trend" id="randomizer">
+            <h2 class="section-title"><i class="fas fa-star"></i> <span id="randomTitle">Trend of the Day</span></h2>
+            <div class="featured-card" id="featuredCard">
+                <div class="featured-image" id="featuredImage">
+                    <!-- Image will be set by JS -->
+                </div>
+                <div class="featured-content">
+                    <div class="trend-tags" id="featuredTags">
+                        <span class="tag tag-danger">Dangerous</span>
+                        <span class="tag tag-game">Game</span>
+                    </div>
+                    <h3 id="featuredName">Loading Trend...</h3>
+                    <p class="trend-era" id="featuredEra"><i class="fas fa-calendar"></i> Era: Early 2020s</p>
+                    <p id="featuredDesc">Click the button below to discover a random piece of internet history.</p>
+                    <div class="featured-facts">
+                        <p><strong>Status:</strong> <span id="featuredStatus" class="status-dead">&#128128; Officially Dead</span></p>
+                        <p><strong>Origin:</strong> <span id="featuredOrigin">TikTok / YouTube</span></p>
+                    </div>
+                    <button class="cta-button secondary" id="randomizeBtn">
+                        <i class="fas fa-dice"></i> Generate Random Trend
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter & Search -->
+        <section class="section filter-section">
+            <h2 class="section-title"><i class="fas fa-filter"></i> Filter the Hype Cycle</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="categoryFilter"><i class="fas fa-tag"></i> Category</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Trends</option>
+                        <option value="dangerous">⚠️ Dangerous Challenges</option>
+                        <option value="game">🎮 Viral Games</option>
+                        <option value="social">📱 Social Media Trends</option>
+                        <option value="culture">🧬 Cultural Phenomena</option>
+                        <option value="product">🛒 Product Hype</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="yearFilter"><i class="fas fa-calendar"></i> Era</label>
+                    <select id="yearFilter">
+                        <option value="all">All Eras</option>
+                        <option value="2010s">2010s (The Wild West)</option>
+                        <option value="2020s">2020s (Algorithmic Age)</option>
+                    </select>
+                </div>
+                <button class="filter-button" id="resetFilters"><i class="fas fa-redo"></i> Reset Filters</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search for a trend (e.g., 'Flappy Bird', 'Tide Pods')...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+
+        <!-- Main Archive Grid -->
+        <section class="section" id="archive">
+            <h2 class="section-title"><i class="fas fa-box-archive"></i> The Main Archive</h2>
+            <p class="section-subtitle">Click on any trend card to expand its story. Hover for a preview.</p>
+            <div class="archive-grid" id="archiveGrid">
+                <!-- Trend cards will be generated by JavaScript here -->
+            </div>
+            <div class="empty-state" id="emptyState">
+                <i class="fas fa-search"></i>
+                <h3>No Trends Found</h3>
+                <p>Try adjusting your filters or search term.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3><i class="fas fa-history"></i> Internet Trend Archive</h3>
+                <p>This site is a curated, non-profit gallery of digital culture, built for GitHub Pages. It documents viral phenomena that once captivated the internet, now preserved as fragments of our shared online history. Use it for education, nostalgia, or inspiration.</p>
+                <p class="footer-note"><strong>Disclaimer:</strong> This archive documents historical trends for educational purposes. It does not endorse any dangerous activities. Many trends listed caused real harm [citation:1][citation:3].</p>
+            </div>
+            <div class="footer-links">
+                <h4>Source & Attribution</h4>
+                <p>Content is compiled from documented news, Wikipedia, and cultural analysis [citation:1][citation:3][citation:5].</p>
+                <p>Icons by FontAwesome. Fonts by Google Fonts.</p>
+                <a href="https://github.com/yourusername/internet-trend-archive" class="github-button" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made with <i class="fas fa-heart"></i> for the internet, by the internet. © 2026 Trend Archive Project. Version 1.0</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
